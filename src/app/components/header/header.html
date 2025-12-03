@@ -1,0 +1,83 @@
+<header class="w-full bg-white shadow-sm">
+  <nav class="max-w-7xl mx-auto px-6 lg:px-8 py-4">
+    <div class="flex items-center justify-between">
+      <!-- Logo -->
+      <div class="flex items-center">
+        <div class="flex items-center space-x-2">
+          <div class="w-8 h-8 border-2 border-orange-500 flex items-center justify-center">
+            <span class="text-orange-500 font-bold text-lg">>_</span>
+          </div>
+          <span class="text-2xl font-bold text-gray-900 tracking-wide">ANH</span>
+        </div>
+      </div>
+
+      <!-- Navigation Menu -->
+      <div class="hidden md:flex items-center space-x-8">
+        <a
+          routerLink="/"
+          class="text-orange-500 font-semibold border-b-2 border-orange-500 pb-1 transition-colors duration-200"
+        >
+          ACCUEIL
+        </a>
+        <a
+          routerLink="/about"
+          class="text-gray-600 hover:text-orange-500 font-semibold transition-colors duration-200"
+        >
+          A PROPOS
+        </a>
+        <a
+          routerLink="/projects"
+          class="text-gray-600 hover:text-orange-500 font-semibold transition-colors duration-200"
+        >
+          PROJETS
+        </a>
+        <a
+          routerLink="/contact"
+          class="text-gray-600 hover:text-orange-500 font-semibold transition-colors duration-200"
+        >
+          CONTACT
+        </a>
+      </div>
+
+      <!-- Contact Button -->
+      <div class="hidden md:block">
+        <button
+          class="bg-orange-500 hover:bg-orange-600 active:bg-black text-white font-semibold px-6 py-3 transition-colors duration-200 shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_rgba(0,0,0,1)] transform hover:translate-x-1 hover:translate-y-1 active:translate-x-2 active:translate-y-2 active:shadow-[1px_1px_0px_rgba(0,0,0,1)] transition-all"
+        >
+          CONTACT NOW
+        </button>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <div class="md:hidden">
+        <button class="text-gray-600 hover:text-gray-900 focus:outline-none">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            ></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu (hidden by default) -->
+    <div class="md:hidden mt-4 pb-4 border-t border-gray-100 hidden">
+      <div class="flex flex-col space-y-4 pt-4">
+        <a routerLink="/" class="text-orange-500 font-semibold">HOME</a>
+        <a routerLink="/about" class="text-gray-600 hover:text-orange-500 font-semibold">ABOUT</a>
+        <a routerLink="/projects" class="text-gray-600 hover:text-orange-500 font-semibold"
+          >PROJECTS</a
+        >
+        <a routerLink="/contact" class="text-gray-600 hover:text-orange-500 font-semibold"
+          >CONTACT</a
+        >
+        <button class="bg-orange-500 text-white font-semibold px-6 py-3 rounded-lg mt-4 w-full">
+          CONTACT NOW
+        </button>
+      </div>
+    </div>
+  </nav>
+</header>
