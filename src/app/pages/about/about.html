@@ -1,1 +1,68 @@
-<p>about works!</p>
+<section class="bg-white py-16 lg:py-24">
+  <div class="max-w-6xl mx-auto px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
+    <!-- COLONNE GAUCHE : IMAGE + RECTANGLES -->
+    <figure class="relative w-full max-w-xl mx-auto">
+      <!-- Parallélogramme jaune à gauche -->
+      <div
+        class="absolute -left-28 top-32 w-80 h-64 bg-[#F7C84F] -z-20 origin-center -skew-x-6"
+      ></div>
+
+      <!-- Grand rectangle bleu/vert derrière la personne -->
+      <div class="absolute left-8 top-10 w-[420px] h-[260px] bg-[#7AD3CF] -z-10"></div>
+
+      <!-- Barre grise en bas -->
+      <div class="absolute left-24 bottom-0 w-[430px] h-[120px] bg-[#333333] -z-10"></div>
+
+      <!-- Photo par-dessus les formes -->
+      <div class="relative w-[420px] h-[420px] mx-auto">
+        <img
+          src="assets/images/about-banner.png"
+          alt="Photo d'Anh"
+          class="w-full h-full object-cover"
+        />
+      </div>
+    </figure>
+
+    <!-- COLONNE DROITE : TEXTE -->
+    <div class="space-y-8">
+      <p class="uppercase tracking-[0.2em] text-sm text-orange-500 font-semibold">À PROPOS</p>
+
+      <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 leading-tight">
+        Je suis développeuse front‑end freelance avec plus de 3 ans d'expérience.
+      </h2>
+
+      <p class="text-gray-600 text-lg leading-relaxed">
+        Je conçois et développe des interfaces modernes pour des clients partout dans le monde.
+        J’aime collaborer avec de nouvelles personnes et transformer leurs idées en expériences web
+        efficaces.
+      </p>
+
+      <div class="flex gap-10">
+        <div>
+          <p class="text-3xl font-extrabold text-orange-500">285+</p>
+          <p class="text-sm text-gray-600 font-medium">Projets réalisés</p>
+        </div>
+        <div>
+          <p class="text-3xl font-extrabold text-orange-500">190+</p>
+          <p class="text-sm text-gray-600 font-medium">Clients satisfaits</p>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap gap-4 pt-2">
+        <a
+          routerLink="/contact"
+          class="inline-block bg-orange-500 hover:bg-orange-600 text-white font-semibold px-8 py-3 text-sm uppercase tracking-[0.18em] shadow-[4px_4px_0px_rgba(0,0,0,0.8)] hover:shadow-[2px_2px_0px_rgba(0,0,0,0.9)] transition-all"
+        >
+          Contact me
+        </a>
+
+        <a
+          routerLink="/portfolio"
+          class="inline-block bg-gray-900 hover:bg-black text-white font-semibold px-8 py-3 text-sm uppercase tracking-[0.18em] shadow-[4px_4px_0px_rgba(255,112,34,0.9)] hover:shadow-[2px_2px_0px_rgba(255,112,34,1)] transition-all"
+        >
+          Portfolio
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
