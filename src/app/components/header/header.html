@@ -55,8 +55,9 @@
       </div>
 
       <!-- Mobile Menu Button -->
+      <!-- Mobile Menu Button -->
       <div class="md:hidden">
-        <button class="text-gray-600 hover:text-gray-900 focus:outline-none">
+        <button (click)="toggleMenu()" class="text-gray-600 hover:text-gray-900 focus:outline-none">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path
               stroke-linecap="round"
@@ -70,37 +71,19 @@
     </div>
 
     <!-- Mobile Menu (hidden by default) -->
-    <div class="md:hidden mt-4 pb-4 border-t border-gray-100 hidden">
+    <!-- Mobile Menu -->
+    <div class="md:hidden mt-4 pb-4 border-t border-gray-100" [class.hidden]="!isMenuOpen">
       <div class="flex flex-col space-y-4 pt-4">
-        <a
-          routerLink="/"
-          routerLinkActive="text-orange-500"
-          [routerLinkActiveOptions]="{ exact: true }"
-          class="font-semibold text-gray-600 hover:text-orange-500"
+        <a routerLink="/" class="font-semibold text-gray-600 hover:text-orange-500">ACCUEIL</a>
+        <a routerLink="/about" class="font-semibold text-gray-600 hover:text-orange-500"
+          >A PROPOS</a
         >
-          ACCUEIL
-        </a>
-        <a
-          routerLink="/about"
-          routerLinkActive="text-orange-500"
-          class="font-semibold text-gray-600 hover:text-orange-500"
+        <a routerLink="/projects" class="font-semibold text-gray-600 hover:text-orange-500"
+          >PROJETS</a
         >
-          A PROPOS
-        </a>
-        <a
-          routerLink="/projects"
-          routerLinkActive="text-orange-500"
-          class="font-semibold text-gray-600 hover:text-orange-500"
+        <a routerLink="/contact" class="font-semibold text-gray-600 hover:text-orange-500"
+          >CONTACT</a
         >
-          PROJETS
-        </a>
-        <a
-          routerLink="/contact"
-          routerLinkActive="text-orange-500"
-          class="font-semibold text-gray-600 hover:text-orange-500"
-        >
-          CONTACT
-        </a>
         <button class="bg-orange-500 text-white font-semibold px-6 py-3 mt-4 w-full">
           CONTACTEZ - MOI
         </button>
