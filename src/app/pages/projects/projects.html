@@ -58,21 +58,22 @@
         </div>
 
         <p class="text-gray-700 leading-relaxed text-lg mb-4">
-          Gestionnaire d'incidents IT pensé pour démontrer des <strong>décisions d'ingénierie</strong>,
-          pas un simple CRUD : le workflow est une règle métier <strong>validée côté serveur</strong>
-          (transition illégale → <strong>409</strong>, même en contournant l'interface), et une couche
-          <strong>IA résiliente</strong> assiste le triage sans jamais bloquer l'application.
+          Outil de suivi d'incidents IT qui va plus loin qu'une appli de gestion classique. Le cycle
+          de vie d'un incident (Ouvert → En cours → Résolu → Fermé) est une <strong>vraie règle
+          appliquée par le serveur</strong> : impossible de sauter une étape, même en essayant de
+          contourner l'interface. Une <strong>IA propose</strong> la priorité et la catégorie — et si
+          elle est indisponible, l'appli continue de tourner normalement.
         </p>
 
         <!-- Fonctionnalités clés -->
         <div class="bg-white p-4 rounded-lg border border-blue-100 mb-4">
-          <h5 class="font-semibold text-gray-800 mb-2">Décisions techniques :</h5>
+          <h5 class="font-semibold text-gray-800 mb-2">Points clés :</h5>
           <ul class="text-gray-600 text-sm space-y-1">
-            <li>• Machine à états validée côté serveur (409 sur transition illégale, même via curl)</li>
-            <li>• Résistance à la concurrence : verrou optimiste (@Version)</li>
-            <li>• Triage IA (priorité/catégorie) en mode dégradé : timeout 3 s + repli local</li>
-            <li>• Détection de doublons sémantique (embeddings Ollama, similarité cosinus)</li>
-            <li>• PostgreSQL + Docker Compose (démarrage en une commande) · 72 tests</li>
+            <li>• Le workflow est appliqué côté serveur : impossible de sauter une étape, même en contournant l'appli (réponse « 409 = interdit »)</li>
+            <li>• Deux personnes ne peuvent pas s'écraser en modifiant le même incident au même moment</li>
+            <li>• L'IA suggère priorité et catégorie ; si elle tarde ou plante, une méthode locale prend le relais — jamais de blocage</li>
+            <li>• Doublons détectés par le sens : « boîte mail cassée » et « impossible d'envoyer des mails » sont rapprochés, même sans mots communs</li>
+            <li>• Base de données PostgreSQL, démarrage en une seule commande (Docker), 72 tests automatisés</li>
           </ul>
         </div>
 
