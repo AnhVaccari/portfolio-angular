@@ -1,100 +1,114 @@
 <!-- Timeline avec gradient -->
 <div class="py-16 bg-amber-50">
-  <h3 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-12 text-center">PROJETS</h3>
+  <h3 class="mb-12 text-2xl font-bold text-center text-gray-900 lg:text-3xl">PROJETS</h3>
 
   <div class="relative max-w-4xl mx-auto">
     <!-- Ligne verticale gradient -->
     <div
-      class="absolute left-6 top-0 bottom-0 w-1 bg-gradient-to-b from-orange-500 via-pink-500 to-purple-500"
+      class="absolute top-0 bottom-0 w-1 left-6 bg-gradient-to-b from-orange-500 via-pink-500 to-purple-500"
     ></div>
 
     <!-- Projet Incident Tracker -->
     <div class="relative flex items-start mb-12">
       <div
-        class="w-16 h-16 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full flex items-center justify-center z-10 shadow-xl"
+        class="z-10 flex items-center justify-center w-16 h-16 rounded-full shadow-xl bg-gradient-to-r from-blue-500 to-indigo-500"
       >
-        <span class="text-white font-bold text-2xl">🎯</span>
+        <span class="text-2xl font-bold text-white">🎯</span>
       </div>
       <div
-        class="ml-8 bg-gradient-to-r from-blue-50 to-indigo-50 p-8 rounded-2xl shadow-xl border border-blue-200 flex-1"
+        class="flex-1 p-8 ml-8 border border-blue-200 shadow-xl bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl"
       >
         <div class="flex items-center justify-between mb-4">
-          <h4 class="font-bold text-2xl text-gray-900">Incident Tracker</h4>
+          <h4 class="text-2xl font-bold text-gray-900">Incident Tracker</h4>
           <a
             href="https://github.com/AnhVaccari/incident-tracker"
             target="_blank"
-            class="text-blue-600 hover:text-blue-800 transition-colors"
+            class="text-blue-600 transition-colors hover:text-blue-800"
           >
-            <span class="text-2xl">🔗</span>
+            <span class="text-2xl">🔗 GitHub</span>
           </a>
         </div>
-        <p class="text-blue-600 font-bold text-lg mb-4">Full-Stack • Spring Boot + Angular 21</p>
+        <p class="mb-4 text-lg font-bold text-blue-600">Full-Stack • Spring Boot + Angular 21</p>
 
         <!-- Screenshots -->
         <div class="mb-6 space-y-4">
           <!-- Screenshot 1 : Liste des incidents -->
-          <div class="rounded-lg overflow-hidden shadow-lg">
+          <div class="overflow-hidden rounded-lg shadow-lg">
             <img
-              src="/assets/images/incident_list.png"
+              src="/assets/images/incident_list1.png"
               alt="Liste des incidents - Incident Tracker"
-              class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
+              class="object-cover w-full h-64 transition-transform duration-300 hover:scale-105"
             />
-            <div class="bg-white px-4 py-2 border-t">
-              <p class="text-sm text-gray-600 font-medium">Interface de gestion des incidents</p>
+            <div class="px-4 py-2 bg-white border-t">
+              <p class="text-sm font-medium text-gray-600">Interface de gestion des incidents</p>
             </div>
           </div>
 
           <!-- Screenshot 2 : Création d'incident -->
-          <div class="rounded-lg overflow-hidden shadow-lg">
+          <div class="overflow-hidden rounded-lg shadow-lg">
             <img
-              src="/assets/images/incident_creation.png"
+              src="/assets/images/incident_creation1.png"
               alt="Modal de création d'incident - Incident Tracker"
-              class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
+              class="object-cover w-full h-64 transition-transform duration-300 hover:scale-105"
             />
-            <div class="bg-white px-4 py-2 border-t">
-              <p class="text-sm text-gray-600 font-medium">Modal de création avec validation</p>
+            <div class="px-4 py-2 bg-white border-t">
+              <p class="text-sm font-medium text-gray-600">Modal de création avec validation</p>
             </div>
           </div>
         </div>
 
-        <p class="text-gray-700 leading-relaxed text-lg mb-4">
+        <p class="mb-4 text-lg leading-relaxed text-gray-700">
           Outil de suivi d'incidents IT qui va plus loin qu'une appli de gestion classique. Le cycle
-          de vie d'un incident (Ouvert → En cours → Résolu → Fermé) est une <strong>vraie règle
-          appliquée par le serveur</strong> : impossible de sauter une étape, même en essayant de
-          contourner l'interface. Une <strong>IA propose</strong> la priorité et la catégorie — et si
-          elle est indisponible, l'appli continue de tourner normalement.
+          de vie d'un incident (Ouvert → En cours → Résolu → Fermé) est une
+          <strong>vraie règle appliquée par le serveur</strong> : impossible de sauter une étape,
+          même en essayant de contourner l'interface. Une <strong>IA propose</strong> la priorité et
+          la catégorie — et si elle est indisponible, l'appli continue de tourner normalement.
         </p>
 
         <!-- Fonctionnalités clés -->
-        <div class="bg-white p-4 rounded-lg border border-blue-100 mb-4">
-          <h5 class="font-semibold text-gray-800 mb-2">Points clés :</h5>
-          <ul class="text-gray-600 text-sm space-y-1">
-            <li>• Le workflow est appliqué côté serveur : impossible de sauter une étape, même en contournant l'appli (réponse « 409 = interdit »)</li>
-            <li>• Deux personnes ne peuvent pas s'écraser en modifiant le même incident au même moment</li>
-            <li>• L'IA suggère priorité et catégorie ; si elle tarde ou plante, une méthode locale prend le relais — jamais de blocage</li>
-            <li>• Doublons détectés par le sens : « boîte mail cassée » et « impossible d'envoyer des mails » sont rapprochés, même sans mots communs</li>
-            <li>• Base de données PostgreSQL, démarrage en une seule commande (Docker), 72 tests automatisés</li>
+        <div class="p-4 mb-4 bg-white border border-blue-100 rounded-lg">
+          <h5 class="mb-2 font-semibold text-gray-800">Points clés :</h5>
+          <ul class="space-y-1 text-sm text-gray-600">
+            <li>
+              • Le workflow est appliqué côté serveur : impossible de sauter une étape, même en
+              contournant l'appli (réponse « 409 = interdit »)
+            </li>
+            <li>
+              • Deux personnes ne peuvent pas s'écraser en modifiant le même incident au même moment
+            </li>
+            <li>
+              • L'IA suggère priorité et catégorie ; si elle tarde ou plante, une méthode locale
+              prend le relais — jamais de blocage
+            </li>
+            <li>
+              • Doublons détectés par le sens : « boîte mail cassée » et « impossible d'envoyer des
+              mails » sont rapprochés, même sans mots communs
+            </li>
+            <li>
+              • Base de données PostgreSQL, démarrage en une seule commande (Docker), 72 tests
+              automatisés
+            </li>
           </ul>
         </div>
 
         <!-- Tags technologies -->
         <div class="flex flex-wrap gap-2">
-          <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-medium"
+          <span class="px-3 py-1 text-sm font-medium text-white bg-blue-500 rounded-full"
             >Java 21</span
           >
-          <span class="bg-indigo-500 text-white px-3 py-1 rounded-full text-sm font-medium"
+          <span class="px-3 py-1 text-sm font-medium text-white bg-indigo-500 rounded-full"
             >Spring Boot 4</span
           >
-          <span class="bg-purple-500 text-white px-3 py-1 rounded-full text-sm font-medium"
+          <span class="px-3 py-1 text-sm font-medium text-white bg-purple-500 rounded-full"
             >Angular 21</span
           >
-          <span class="bg-sky-600 text-white px-3 py-1 rounded-full text-sm font-medium"
+          <span class="px-3 py-1 text-sm font-medium text-white rounded-full bg-sky-600"
             >PostgreSQL</span
           >
-          <span class="bg-cyan-500 text-white px-3 py-1 rounded-full text-sm font-medium"
+          <span class="px-3 py-1 text-sm font-medium text-white rounded-full bg-cyan-500"
             >Docker</span
           >
-          <span class="bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-medium"
+          <span class="px-3 py-1 text-sm font-medium text-white bg-orange-500 rounded-full"
             >IA (Ollama)</span
           >
         </div>
@@ -104,68 +118,72 @@
     <!-- Projet E-commerce -->
     <div class="relative flex items-start mb-12">
       <div
-        class="w-16 h-16 bg-gradient-to-r from-orange-500 to-pink-500 rounded-full flex items-center justify-center z-10 shadow-xl"
+        class="z-10 flex items-center justify-center w-16 h-16 rounded-full shadow-xl bg-gradient-to-r from-orange-500 to-pink-500"
       >
-        <span class="text-white font-bold text-2xl">🛒</span>
+        <span class="text-2xl font-bold text-white">🛒</span>
       </div>
       <div
-        class="ml-8 bg-gradient-to-r from-orange-50 to-pink-50 p-8 rounded-2xl shadow-xl border border-orange-200 flex-1"
+        class="flex-1 p-8 ml-8 border border-orange-200 shadow-xl bg-gradient-to-r from-orange-50 to-pink-50 rounded-2xl"
       >
         <div class="flex items-center justify-between mb-4">
-          <h4 class="font-bold text-2xl text-gray-900">E-Commerce Platform</h4>
+          <h4 class="text-2xl font-bold text-gray-900">E-Commerce Platform</h4>
           <a
             href="https://github.com/AnhVaccari/e-commerce-platform"
             target="_blank"
-            class="text-orange-600 hover:text-orange-800 transition-colors"
+            class="text-orange-600 transition-colors hover:text-orange-800"
           >
             <span class="text-2xl">🔗 GitHub</span>
           </a>
         </div>
-        <p class="text-orange-600 font-bold text-lg mb-4">Full-Stack • Spring Boot + Angular 21</p>
+        <p class="mb-4 text-lg font-bold text-orange-600">Full-Stack • Spring Boot + Angular 21</p>
 
         <!-- Screenshot -->
-        <div class="mb-6 rounded-lg overflow-hidden shadow-lg">
+        <div class="mb-6 overflow-hidden rounded-lg shadow-lg">
           <img
             src="/assets/images/e_commerce1.png"
             alt="E-Commerce Platform Screenshot"
-            class="w-full object-cover hover:scale-105 transition-transform duration-300"
+            class="object-cover w-full transition-transform duration-300 hover:scale-105"
           />
         </div>
 
-        <p class="text-gray-700 leading-relaxed text-lg mb-4">
+        <p class="mb-4 text-lg leading-relaxed text-gray-700">
           Plateforme e-commerce complète : boutique publique, panier, commandes et back-office
-          d'administration. L'accent est mis sur la <strong>sécurité</strong> (authentification
-          JWT, accès par rôles) et l'<strong>intégrité des données</strong> (validation du stock
-          à la commande).
+          d'administration. L'accent est mis sur la <strong>sécurité</strong> (authentification JWT,
+          accès par rôles) et l'<strong>intégrité des données</strong> (validation du stock à la
+          commande).
         </p>
 
         <!-- Fonctionnalités clés -->
-        <div class="bg-white p-4 rounded-lg border border-orange-100 mb-4">
-          <h5 class="font-semibold text-gray-800 mb-2">Points clés :</h5>
-          <ul class="text-gray-600 text-sm space-y-1">
-            <li>• Sécurité : authentification JWT + accès par rôles (User/Admin) via Spring Security</li>
+        <div class="p-4 mb-4 bg-white border border-orange-100 rounded-lg">
+          <h5 class="mb-2 font-semibold text-gray-800">Points clés :</h5>
+          <ul class="space-y-1 text-sm text-gray-600">
+            <li>
+              • Sécurité : authentification JWT + accès par rôles (User/Admin) via Spring Security
+            </li>
             <li>• Intégrité des données : validation du stock au passage de commande</li>
             <li>• Back-office admin complet (CRUD produits, utilisateurs, commandes)</li>
-            <li>• Boutique publique : catalogue responsive, recherche/filtres, panier persistant</li>
+            <li>
+              • Boutique publique : catalogue responsive, recherche/filtres, panier persistant
+            </li>
             <li>• Architecture full-stack : API REST Spring Boot ↔ front Angular</li>
           </ul>
         </div>
 
         <!-- Tags technologies -->
         <div class="flex flex-wrap gap-2">
-          <span class="bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-medium"
+          <span class="px-3 py-1 text-sm font-medium text-white bg-orange-500 rounded-full"
             >Java 21</span
           >
-          <span class="bg-pink-500 text-white px-3 py-1 rounded-full text-sm font-medium"
+          <span class="px-3 py-1 text-sm font-medium text-white bg-pink-500 rounded-full"
             >Spring Boot</span
           >
-          <span class="bg-purple-500 text-white px-3 py-1 rounded-full text-sm font-medium"
+          <span class="px-3 py-1 text-sm font-medium text-white bg-purple-500 rounded-full"
             >Angular 21</span
           >
-          <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-medium"
+          <span class="px-3 py-1 text-sm font-medium text-white bg-blue-500 rounded-full"
             >TypeScript</span
           >
-          <span class="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium"
+          <span class="px-3 py-1 text-sm font-medium text-white bg-green-500 rounded-full"
             >CSS3</span
           >
         </div>
