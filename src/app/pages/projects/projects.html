@@ -136,20 +136,21 @@
         </div>
 
         <p class="text-gray-700 leading-relaxed text-lg mb-4">
-          Application de gestion d'incidents informatiques avec workflow complet de statuts.
-          Interface moderne pour la création, suivi et résolution d'incidents IT avec validation et
-          gestion d'état temps réel.
+          Gestionnaire d'incidents IT pensé pour démontrer des <strong>décisions d'ingénierie</strong>,
+          pas un simple CRUD : le workflow est une règle métier <strong>validée côté serveur</strong>
+          (transition illégale → <strong>409</strong>, même en contournant l'interface), et une couche
+          <strong>IA résiliente</strong> assiste le triage sans jamais bloquer l'application.
         </p>
 
         <!-- Fonctionnalités clés -->
         <div class="bg-white p-4 rounded-lg border border-blue-100 mb-4">
-          <h5 class="font-semibold text-gray-800 mb-2">Fonctionnalités :</h5>
+          <h5 class="font-semibold text-gray-800 mb-2">Décisions techniques :</h5>
           <ul class="text-gray-600 text-sm space-y-1">
-            <li>• CRUD complet des incidents avec validation</li>
-            <li>• Workflow de statuts (Ouvert → En cours → Résolu → Fermé)</li>
-            <li>• Interface responsive avec codes couleur</li>
-            <li>• Modal de création avec formulaires réactifs</li>
-            <li>• Communication temps réel Angular ↔ Spring Boot</li>
+            <li>• Machine à états validée côté serveur (409 sur transition illégale, même via curl)</li>
+            <li>• Résistance à la concurrence : verrou optimiste (@Version)</li>
+            <li>• Triage IA (priorité/catégorie) en mode dégradé : timeout 3 s + repli local</li>
+            <li>• Détection de doublons sémantique (embeddings Ollama, similarité cosinus)</li>
+            <li>• PostgreSQL + Docker Compose (démarrage en une commande) · 72 tests</li>
           </ul>
         </div>
 
@@ -159,16 +160,19 @@
             >Java 21</span
           >
           <span class="bg-indigo-500 text-white px-3 py-1 rounded-full text-sm font-medium"
-            >Spring Boot</span
+            >Spring Boot 4</span
           >
           <span class="bg-purple-500 text-white px-3 py-1 rounded-full text-sm font-medium"
             >Angular 21</span
           >
-          <span class="bg-cyan-500 text-white px-3 py-1 rounded-full text-sm font-medium"
-            >TypeScript</span
+          <span class="bg-sky-600 text-white px-3 py-1 rounded-full text-sm font-medium"
+            >PostgreSQL</span
           >
-          <span class="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium"
-            >API REST</span
+          <span class="bg-cyan-500 text-white px-3 py-1 rounded-full text-sm font-medium"
+            >Docker</span
+          >
+          <span class="bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-medium"
+            >IA (Ollama)</span
           >
         </div>
       </div>
