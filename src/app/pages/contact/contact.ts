@@ -27,6 +27,47 @@ export class ContactComponent {
   readonly showSuccessMessage = signal(false);
   readonly errorMessage = signal('');
 
+  /** Adresse affichée, copiable pour qui n'a pas de messagerie configurée :
+      un lien mailto ne mène nulle part sur un poste sans client mail. */
+  readonly email = 'anh.vaccari@gmail.com';
+  readonly copyLabel = signal('Copier');
+
+  async copyEmail() {
+    const copie = await this.ecrireDansLePressePapier(this.email);
+    // On ne dit « Copié » que si ça l'est vraiment.
+    this.copyLabel.set(copie ? 'Copié !' : 'Sélectionnez l’adresse');
+    setTimeout(() => this.copyLabel.set('Copier'), 2500);
+  }
+
+  private async ecrireDansLePressePapier(texte: string): Promise<boolean> {
+    try {
+      await navigator.clipboard.writeText(texte);
+      return true;
+    } catch {
+      // Presse-papier moderne indisponible : navigateur ancien, page servie
+      // sans HTTPS, ou fenêtre sans focus. On retombe sur la vieille méthode.
+      return this.copieHistorique(texte);
+    }
+  }
+
+  private copieHistorique(texte: string): boolean {
+    const zone = document.createElement('textarea');
+    zone.value = texte;
+    zone.setAttribute('readonly', '');
+    zone.style.position = 'fixed';
+    zone.style.opacity = '0';
+    document.body.appendChild(zone);
+    zone.select();
+    let ok = false;
+    try {
+      ok = document.execCommand('copy');
+    } catch {
+      ok = false;
+    }
+    document.body.removeChild(zone);
+    return ok;
+  }
+
   contactForm = new FormGroup({
     name: new FormControl('', Validators.required),
     email: new FormControl('', [Validators.required, Validators.email]),

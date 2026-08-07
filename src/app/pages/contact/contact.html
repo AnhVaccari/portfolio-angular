@@ -129,7 +129,7 @@
 
         <!-- Email -->
         <div class="flex items-start space-x-4">
-          <a href="mailto:anh.vaccari@gmail.com" class="relative z-50">
+          <a [href]="'mailto:' + email" class="relative z-50">
             <div
               class="flex-shrink-0 w-16 h-16 bg-yellow-400 rounded-lg flex items-center justify-center hover:bg-orange-300 transition-colors cursor-pointer"
             >
@@ -147,12 +147,21 @@
           <div>
             <h3 class="text-lg font-semibold text-white mb-2">MAIL</h3>
 
-            <a
-              href="mailto:anh.vaccari@gmail.com"
-              class="relative z-50 text-xl text-gray-300 hover:text-white transition-colors"
-            >
-              anh.vaccari@gmail.com
-            </a>
+            <div class="flex flex-wrap items-center gap-3">
+              <a
+                [href]="'mailto:' + email"
+                class="relative z-50 text-xl text-gray-300 hover:text-white transition-colors"
+              >
+                {{ email }}
+              </a>
+              <button
+                type="button"
+                (click)="copyEmail()"
+                class="px-3 py-1 text-sm text-gray-300 border border-gray-500 rounded hover:text-white hover:border-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-orange-400 transition-colors"
+              >
+                {{ copyLabel() }}
+              </button>
+            </div>
           </div>
         </div>
 
