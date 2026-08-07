@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, inject, signal } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { timeout } from 'rxjs';
 
@@ -77,6 +78,16 @@ export class ContactComponent {
     message: new FormControl('', Validators.required),
   });
 
+  constructor() {
+    // La confirmation reste affichée tant qu'elle est utile — pas de minuterie
+    // qui l'escamote avant d'avoir été lue — et s'efface dès que le visiteur
+    // recommence à écrire, moment où elle ne veut plus rien dire.
+    this.contactForm.valueChanges.pipe(takeUntilDestroyed()).subscribe(() => {
+      this.showSuccessMessage.set(false);
+      this.errorMessage.set('');
+    });
+  }
+
   onSubmit() {
     if (this.contactForm.invalid) {
       this.contactForm.markAllAsTouched();
@@ -97,8 +108,10 @@ export class ContactComponent {
       .subscribe({
         next: () => {
           this.isLoading.set(false);
-          this.showSuccessMessage.set(true);
+          // Vider le formulaire déclenche valueChanges, qui efface la
+          // confirmation : on remet donc à zéro d'abord, on annonce ensuite.
           this.contactForm.reset();
+          this.showSuccessMessage.set(true);
         },
         error: () => {
           // Un échec doit se voir : sinon le visiteur repart en croyant avoir
