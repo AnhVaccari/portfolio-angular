@@ -11,6 +11,9 @@ const FORMSPREE_ENDPOINT = 'https://formspree.io/f/moqgwjvk';
 /** Au-delà, on considère l'envoi perdu : mieux vaut le dire que faire attendre. */
 const ENVOI_TIMEOUT_MS = 10_000;
 
+/** Durée d'affichage de la confirmation : large de quoi la lire sans la rater. */
+const CONFIRMATION_VISIBLE_MS = 10_000;
+
 @Component({
   selector: 'app-contact',
   standalone: true,
@@ -78,10 +81,14 @@ export class ContactComponent {
     message: new FormControl('', Validators.required),
   });
 
+  private effacementConfirmation?: ReturnType<typeof setTimeout>;
+
   constructor() {
-    // La confirmation reste affichée tant qu'elle est utile — pas de minuterie
-    // qui l'escamote avant d'avoir été lue — et s'efface dès que le visiteur
-    // recommence à écrire, moment où elle ne veut plus rien dire.
+    // La confirmation s'efface au premier des deux : la fin du délai ci-dessus,
+    // ou la reprise de la saisie. Le visiteur type n'écrit qu'une fois et s'en
+    // va — sans minuterie, le message resterait à l'écran pour toujours.
+    // Le message d'erreur, lui, n'a pas de minuterie : il doit rester tant que
+    // le problème n'est pas traité.
     this.contactForm.valueChanges.pipe(takeUntilDestroyed()).subscribe(() => {
       this.showSuccessMessage.set(false);
       this.errorMessage.set('');
@@ -112,6 +119,11 @@ export class ContactComponent {
           // confirmation : on remet donc à zéro d'abord, on annonce ensuite.
           this.contactForm.reset();
           this.showSuccessMessage.set(true);
+          clearTimeout(this.effacementConfirmation);
+          this.effacementConfirmation = setTimeout(
+            () => this.showSuccessMessage.set(false),
+            CONFIRMATION_VISIBLE_MS
+          );
         },
         error: () => {
           // Un échec doit se voir : sinon le visiteur repart en croyant avoir
