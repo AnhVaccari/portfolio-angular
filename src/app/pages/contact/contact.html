@@ -14,7 +14,7 @@
           <!-- Name and Email -->
           <div class="grid md:grid-cols-2 gap-6">
             <div>
-              <label for="firstName" class="block text-sm font-medium text-gray-700 mb-2">
+              <label for="name" class="block text-sm font-medium text-gray-700 mb-2">
                 Nom prénom
               </label>
               <input
@@ -74,17 +74,26 @@
           <!-- Submit Button -->
           <button
             type="submit"
-            [disabled]="contactForm.invalid || isLoading"
+            [disabled]="contactForm.invalid || isLoading()"
             class="bg-yellow-400 hover:bg-orange-300 active:bg-black text-gray-600 font-semibold px-8 py-4 transition-colors duration-200 shadow-[4px_4px_0px_rgba(255,165,0,1)] hover:shadow-[2px_2px_0px_rgba(255,165,0,1)] transform hover:translate-x-1 hover:translate-y-1 active:translate-x-2 active:translate-y-2 active:shadow-[1px_1px_0px_rgba(255,165,0,1)] transition-all"
           >
-            @if (isLoading) { ENVOI EN COURS... } @else { ENVOYER }
+            @if (isLoading()) { ENVOI EN COURS... } @else { ENVOYER }
           </button>
 
-          @if (showSuccessMessage) {
+          @if (showSuccessMessage()) {
           <div class="mt-6 bg-green-100 border-l-4 border-green-500 text-green-700 p-4 rounded">
             <div class="flex">
               <span class="text-lg">✅</span>
-              <p class="ml-3 font-medium">Message envoyé avec succès !</p>
+              <p class="ml-3 font-medium">
+                Message envoyé, merci ! Je vous réponds dès que possible.
+              </p>
+            </div>
+          </div>
+          } @if (errorMessage()) {
+          <div class="mt-6 bg-red-100 border-l-4 border-red-500 text-red-700 p-4 rounded">
+            <div class="flex">
+              <span class="text-lg">⚠️</span>
+              <p class="ml-3 font-medium">{{ errorMessage() }}</p>
             </div>
           </div>
           }
@@ -110,7 +119,7 @@
           <div>
             <h3 class="text-lg font-semibold text-white mb-2">TELEPHONE</h3>
             <a
-              href="tel:+0123456789"
+              href="tel:+33662282967"
               class="text-xl text-gray-300 hover:text-white transition-colors"
             >
               +33 6 62 28 29 67
