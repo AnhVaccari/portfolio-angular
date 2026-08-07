@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Component, inject, signal } from '@angular/core';
+import { Component, DestroyRef, inject, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { timeout } from 'rxjs';
@@ -23,6 +23,9 @@ const CONFIRMATION_VISIBLE_MS = 10_000;
 })
 export class ContactComponent {
   private http = inject(HttpClient);
+  // Recuperee ici, ou le contexte d'injection existe : passee explicitement a
+  // takeUntilDestroyed, elle evite NG0203 lors d'une navigation interne.
+  private destroyRef = inject(DestroyRef);
 
   // L'application tourne sans zone.js : une écriture faite dans la réponse
   // d'une requête ne redessine pas la vue toute seule. Les signaux, eux,
@@ -89,7 +92,7 @@ export class ContactComponent {
     // va — sans minuterie, le message resterait à l'écran pour toujours.
     // Le message d'erreur, lui, n'a pas de minuterie : il doit rester tant que
     // le problème n'est pas traité.
-    this.contactForm.valueChanges.pipe(takeUntilDestroyed()).subscribe(() => {
+    this.contactForm.valueChanges.pipe(takeUntilDestroyed(this.destroyRef)).subscribe(() => {
       this.showSuccessMessage.set(false);
       this.errorMessage.set('');
     });
