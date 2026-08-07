@@ -30,13 +30,15 @@ export class ContactComponent {
   /** Adresse affichée, copiable pour qui n'a pas de messagerie configurée :
       un lien mailto ne mène nulle part sur un poste sans client mail. */
   readonly email = 'anh.vaccari@gmail.com';
-  readonly copyLabel = signal('Copier');
+
+  /** 'repos' | 'copie' (réussi) | 'echec' (presse-papier refusé). */
+  readonly copyState = signal<'repos' | 'copie' | 'echec'>('repos');
 
   async copyEmail() {
+    // On ne signale la copie que si elle a vraiment eu lieu.
     const copie = await this.ecrireDansLePressePapier(this.email);
-    // On ne dit « Copié » que si ça l'est vraiment.
-    this.copyLabel.set(copie ? 'Copié !' : 'Sélectionnez l’adresse');
-    setTimeout(() => this.copyLabel.set('Copier'), 2500);
+    this.copyState.set(copie ? 'copie' : 'echec');
+    setTimeout(() => this.copyState.set('repos'), 2500);
   }
 
   private async ecrireDansLePressePapier(texte: string): Promise<boolean> {
