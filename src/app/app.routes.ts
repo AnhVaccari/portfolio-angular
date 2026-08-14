@@ -6,10 +6,10 @@ import { ProjectsComponent } from './pages/projects/projects';
 import { NgModule } from '@angular/core';
 
 export const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'about', component: AboutComponent },
-  { path: 'projects', component: ProjectsComponent },
-  { path: 'contact', component: ContactComponent },
+  { path: '', component: HomeComponent, title: 'Anh Vaccari — Développeuse Full-Stack Angular · Node.js · Java' },
+  { path: 'about', component: AboutComponent, title: 'À propos — Anh Vaccari' },
+  { path: 'projects', component: ProjectsComponent, title: 'Projets — Anh Vaccari' },
+  { path: 'contact', component: ContactComponent, title: 'Contact — Anh Vaccari' },
   { path: '**', redirectTo: '' }, // redirection si URL inconnue
 ];
 
