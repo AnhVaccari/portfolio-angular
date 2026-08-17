@@ -1,7 +1,8 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './components/header/header';
 import { FooterComponent } from './components/footer/footer';
+import { CanonicalService } from './canonical.service';
 
 @Component({
   selector: 'app-root',
@@ -12,4 +13,8 @@ import { FooterComponent } from './components/footer/footer';
 })
 export class AppComponent {
   title = signal('portfolio-angular');
+
+  constructor() {
+    inject(CanonicalService).start();
+  }
 }
